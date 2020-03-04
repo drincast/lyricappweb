@@ -12,8 +12,6 @@ function App() {
         setSong(lstSongs[id]);
     }
 
-    getSong(1);
-
     return (
         <Fragment>
             <Header />            
