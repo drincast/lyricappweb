@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+import Strophe from './Strophe';
 
 const LyricOnly = () => {
     return (
         <Fragment>
-            <h1>your code here !!!!!</h1>
+            <Strophe />
         </Fragment>
     );
 }

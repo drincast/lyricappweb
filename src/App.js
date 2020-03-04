@@ -1,13 +1,23 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 
 import Header from './component/Header';
-import Strophe from './component/Strophe';
+import LyricOnly from './component/LyricOnly';
+
+import lstSongs from "./TempData";
 
 function App() {
+    const [song, setSong] = useState([]);
+
+    const getSong = id => {
+        setSong(lstSongs[id]);
+    }
+
+    getSong(1);
+
     return (
         <Fragment>
-            <Header />
-            <Strophe />
+            <Header />            
+            <LyricOnly song={song}/>
         </Fragment>
     );
 }
