@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
 import Strophe from './Strophe';
 
-const LyricOnly = () => {
+const LyricOnly = ({song}) => {
+    let i = 0;
+    const createStrophe = song.map( item => <Strophe key={i++} strophe={item} /> );
+
     return (
         <Fragment>
-            <Strophe />
+            {createStrophe}
         </Fragment>
     );
 }
