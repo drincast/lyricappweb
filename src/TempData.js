@@ -1,3 +1,9 @@
+let song = {
+    by: 'Michael Jackson',
+    lyric: [],
+    title: 'beat it',
+};
+
 let sp1 = [];
 sp1.push("They told him don't you ever come around here");
 sp1.push("Don't want to see your face, you better disappear");
@@ -16,11 +22,9 @@ sp3.push("No one wants to be defeated");
 sp3.push("Showin' how funky and strong is your fight");
 sp3.push("It doesn't matter who's wrong or right");
 
-
-let song = [];
-song.push(sp1);
-song.push(sp2);
-song.push(sp3);
+song.lyric.push(sp1);
+song.lyric.push(sp2);
+song.lyric.push(sp3);
 
 let lstSongs = [];
 lstSongs.push(song);

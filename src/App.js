@@ -6,12 +6,15 @@ import LyricOnly from './component/LyricOnly';
 import GetSongs from "./TempData";
 
 function App() {
-    const [song, setSong] = useState([]);
+    const [song, setSong] = useState({
+        by: '',
+        title: '',
+        lyric: []
+    });
 
-    const getSong = id => {
-        const lstSongs = GetSongs();
-        console.log(lstSongs);
-        setSong(lstSongs[0]);
+    const getSong = async id => {
+        const lstSongs = GetSongs();        
+        await setSong(lstSongs[0]);
         console.log(song);
     }
 
@@ -19,7 +22,7 @@ function App() {
         <Fragment>
             <Header />
             <button onClick={getSong}>song</button>
-            <LyricOnly song={song}/>
+            <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
         </Fragment>
     );
 }
