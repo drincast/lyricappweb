@@ -34,7 +34,9 @@ function App() {
             ...styleTheme,
             bgcolor: theme.bgcolor,
             color: theme.color
-        })
+        });
+
+        document.getElementById('root').style.backgroundColor = theme.bgcolor;
     }
 
     const getSong = async id => {
@@ -44,12 +46,14 @@ function App() {
     }
 
     return (
-        <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color}>
-            <Header />
-            <StyleTheme changeTheme={changeTheme} />
-            <button onClick={getSong}>song</button>
-            <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
-        </Box   >
+        <div style={{backgroundColor: styleTheme.bgcolor, height: '100%'}}>
+            <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
+                <Header />
+                <StyleTheme changeTheme={changeTheme} />
+                <button onClick={getSong}>song</button>
+                <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
+            </Box>
+        </div>
     );
 }
 

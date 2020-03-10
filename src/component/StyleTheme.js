@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/styles';
 
 const StyleTheme = ({ changeTheme }) => {
     const [checkDarkMode, setCheckDarkMode] = useState(false);
-    const [bgSwitch, setBgSwitch] = useState('white');
 
     const handleChange = e =>{
         const checked = e.target.checked;
@@ -44,16 +43,6 @@ const StyleTheme = ({ changeTheme }) => {
 
     return (
         <Fragment>
-            {/* <FormControlLabel
-                control={<Switch checked={checkDarkMode}
-                            onChange={handleChange}
-                            value="themeDrackMode"
-                            id="themeDrackMode"
-                            name="themeDrackMode"
-                            color="primary"
-                            inputProps={{ 'aria-label': 'black checkbox' }} />}
-                label='Darck mode'>
-            </FormControlLabel> */}
             <FormControlLabel
                 control={<StlSwitchDM checked={checkDarkMode}
                             onChange={handleChange}
