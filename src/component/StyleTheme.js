@@ -62,7 +62,8 @@ const StyleTheme = ({ changeTheme }) => {
                             name="themeDrackMode"
                             color="primary"
                             inputProps={{ 'aria-label': 'black checkbox' }} />}
-                label='Darck mode'>
+                label='Darck mode'
+                labelPlacement='top'>
             </FormControlLabel>
         </Fragment>
     );
