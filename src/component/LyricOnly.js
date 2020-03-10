@@ -14,7 +14,7 @@ const LyricOnly = ({ by, lyric, title }) => {
 
     const darkTheme01 = createMuiTheme({
         palette: {
-          type: 'dark',
+          type: 'light',
           background: {
               default: '#000',
               container: '#000',
@@ -30,14 +30,20 @@ const LyricOnly = ({ by, lyric, title }) => {
 
     return (
         // <ThemeProvider theme={darkTheme} >
-        <ThemeProvider theme={darkTheme01}>
-            <StlMuiContainer maxWidth='md'>
-                <Paper>
-                    <LyricTitle title={title} by={by} />
-                    {createStrophe}                    
-                </Paper>
-            </StlMuiContainer>
-        </ThemeProvider>
+        // <ThemeProvider theme={darkTheme01}>
+        //     <StlMuiContainer maxWidth='md'>
+        //         <Paper>
+        //             <LyricTitle title={title} by={by} />
+        //             {createStrophe}                    
+        //         </Paper>
+        //     </StlMuiContainer>
+        // </ThemeProvider>
+
+        
+            <Container>
+                <LyricTitle title={title} by={by} />
+                    {createStrophe}
+            </Container>
         
     );
 }
