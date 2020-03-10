@@ -45,6 +45,8 @@ function App() {
         console.log(song);
     }
 
+    console.log(window.screen.height);
+
     return (
         <div style={{backgroundColor: styleTheme.bgcolor, height: '100%'}}>
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
