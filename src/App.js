@@ -48,7 +48,7 @@ function App() {
     console.log(window.screen.height);
 
     return (
-        <div style={{backgroundColor: styleTheme.bgcolor, height: '100%'}}>
+        <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
                 <Header />
                 <StyleTheme changeTheme={changeTheme} />
