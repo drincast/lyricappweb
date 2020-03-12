@@ -1,0 +1,103 @@
+{
+	"00": 
+	{
+		"song": {
+			"by": "AC/DC",			
+			"title": "You shook Me All Night Long",
+			"lyric": {
+				"sp1": [
+						"She was a fast machine",
+						"She kept her motor clean",
+						"She was the best damn woman I had ever seen",
+						"She had the sightless eyes",
+						"She had the sightless eyes",
+						"Telling me no lies",
+						"Knockin' me out with those American thighs",
+						"Taking more than her share",
+						"Had me fighting for air",
+						"She told me to come but I was already there",
+						"'Cause the walls start shaking",
+						"The earth was quaking",
+						"My mind was aching",
+						"And we were making it and you"
+				],
+				"sp2": [						
+						"'Cause the walls start shaking",
+						"The earth was quaking",
+						"My mind was aching",
+						"And we were making it and you"
+				],
+				"sp3": [
+						"Shook me all night long",
+						"Yeah you shook me all night long"
+				],
+				"sp4": [
+						"Working double time",
+						"On the seduction line",
+						"She was one of a kind, she's just mine all mine",
+						"Wanted no applause",
+						"Just another course",
+						"Made a meal out of me and came back for more",
+						"Had to cool me down",
+						"To take another round",
+						"Now I'm back in the ring to take another swing"
+				],
+				"sp5": [						
+						"'Cause the walls were shaking",
+						"The earth was quaking",
+						"My mind was aching",
+						"And we were making it and you"
+				],
+				"sp6": [						
+						"And you shook me all night long",
+						"Yeah you shook me all night long",
+						"Knocked me out I said you",
+						"Shook me all night long",
+						"You had me shaking and you",
+						"Shook me all night long",
+						"Yeah you shook me",
+						"When you took me"
+				],
+				"sp7": [						
+						"You really took me and you",
+						"Shook me all night long",
+						"You shook me all night long",
+						"Yeah, yeah, you shook me all night long",
+						"You really got me and you",
+						"Shook me all night long",
+						"Yeah you shook me",
+						"Yeah you shook me",
+						"All night long "
+				]
+			}
+		}
+	},
+
+	"01": 
+	{
+		"song": {
+			"by": "Michael Jackson",			
+			"title": "beat it",
+			"lyric": {
+				"sp1": [
+						"They told him don't you ever come around here",
+						"Don't want to see your face, you better disappear",
+						"The fire's in their eyes and their words are really clear",
+						"So beat it, just beat it"
+					],
+				"sp2": [
+						"You better run, you better do what you can",
+						"Don't want to see no blood, don't be a macho man",
+						"You want to be tough, better do what you can",
+						"So beat it, but you want to be bad"
+					],
+				"sp3": [
+						"Just beat it, beat it, beat it, beat it",
+						"No one wants to be defeated",
+						"Showin' how funky and strong is your fight",
+						"It doesn't matter who's wrong or right"
+					]
+				}
+		}
+	}
+}
