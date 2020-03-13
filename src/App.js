@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React, { useEffect, useState } from 'react';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Select from '@material-ui/core/Select';
@@ -9,9 +9,8 @@ import Header from './component/Header';
 import LyricOnly from './component/LyricOnly';
 import StyleTheme from './component/StyleTheme';
 
-import GetSongs from './TempData';
+import { GetSong, GetSongs} from './TempData';
 import DataThemes from './DataThemes.json';
-import DataLyrics from './DataLyrics.json';
 
 const StlMuiContainerPpal = withStyles({
     root:{        
@@ -20,11 +19,13 @@ const StlMuiContainerPpal = withStyles({
     },
 })(Container);
 
+const useStyles = makeStyles(theme => ({
+    selectEmpy:{
+        marginTop: theme.spacing(2)
+    }
+}))
+
 function App() {
-    
-
-    console.log(Object.keys(DataThemes));
-
     const [styleTheme, setStyleTheme] = useState({
         bgcolor: 'white',
         color: 'black'
@@ -35,6 +36,13 @@ function App() {
         title: '',
         lyric: []
     });
+
+    const [idSong, setIdSong] = useState('');
+
+    useEffect(() => {
+        console.log('idSong', idSong);
+        GetSong(idSong)
+    }, [idSong]);
 
     const changeTheme = theme => {
         console.log('theme', theme);
@@ -53,20 +61,34 @@ function App() {
         console.log(song);
     }
 
-    console.log(window.screen.height);
+    const handleSelect = e => {
+        setIdSong(e.target.value);
+    }
+
+    const getLstSongs = () => {
+        if(DataThemes.length > 0){
+            const items = DataThemes.map(item => {
+                return <MenuItem value={item.id} key={item.id}>{item.title}</MenuItem>
+            });
+
+            return items;
+        }
+
+        return null;
+    }
 
     return (
         <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
                 <Header />
                 <StyleTheme changeTheme={changeTheme} />
-                <Select>
+                <Select id='Song'
+                    value={idSong}
+                    onChange={handleSelect}>
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
-                    <MenuItem value='1'>Ten</MenuItem>
-                    <MenuItem value='2'>Twenty</MenuItem>
-                    <MenuItem value='3'>Thirty</MenuItem>
+                    {getLstSongs()}
                 </Select>
                 <button onClick={getSong}>song</button>
                 <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>

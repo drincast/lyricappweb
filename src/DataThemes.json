@@ -1,4 +1,10 @@
-{
-    "00": "You shook Me All Night Long",
-    "01": "beat it"
-}
+[
+    {
+        "id": "00",
+        "title": "You shook Me All Night Long"
+    },
+    {
+        "id": "01",
+        "title": "beat it"
+    }
+]

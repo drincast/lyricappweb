@@ -1,3 +1,5 @@
+import DataLyrics from './DataLyrics.json';
+
 let song = {
     by: 'Michael Jackson',
     lyric: [],
@@ -29,7 +31,29 @@ song.lyric.push(sp3);
 let lstSongs = [];
 lstSongs.push(song);
 
-export default function GetSongs(){
+function GetSong(id){
+    if(DataLyrics){
+        if(DataLyrics.length > 0){
+            const song = DataLyrics.find(item => {
+                console.log(item);
+
+                if(item.id === id){
+                    return item
+                }
+
+                return item;
+            });
+            console.log(song, id);
+            return song;
+        }
+    }
+}
+
+function GetSongs(){
     return lstSongs;
 }
 
+export {
+    GetSong,
+    GetSongs
+}
