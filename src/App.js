@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     selectEmpy:{
         marginTop: theme.spacing(2)
     }
-}))
+}));
 
 function App() {
     const [styleTheme, setStyleTheme] = useState({
@@ -53,6 +53,34 @@ function App() {
         });
         //console.log('reponse', song);
     }, [idSong]);
+
+    //Styles
+    const StlSelect = withStyles({
+        root: {
+            underline: {
+                color: styleTheme.bgcolor === 'white' ? 'black' : 'white',
+                backgroundColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',
+                after: {borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',},
+                borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',
+                '&:after': {
+                    underline: {borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',}
+                },
+            },
+        },
+        select:{
+            color: styleTheme.bgcolor === 'white' ? 'black' : 'white',
+            border: 2,
+            borderColor: 'white',
+            '&:after':{
+                underline: {borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',},
+            } 
+                        
+        },
+        icon: {
+            color: styleTheme.bgcolor === 'white' ? 'black' : 'white',
+        },
+        
+    })(Select);
 
     const changeTheme = theme => {
         //console.log('theme', theme);
@@ -92,14 +120,14 @@ function App() {
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
                 <Header />
                 <StyleTheme changeTheme={changeTheme} />
-                <Select id='Song'
+                <StlSelect id='Song'
                     value={idSong}
                     onChange={handleSelect}>
                     <MenuItem value="">
                         <em>None</em>
                     </MenuItem>
                     {getLstSongs()}
-                </Select>
+                </StlSelect>
                 <button onClick={getSong}>song</button>
                 <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
             </Box>

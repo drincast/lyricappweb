@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -13,38 +13,23 @@ const LyricOnly = ({ by, lyric, title }) => {
 
     const [lstStrophes, setLstStrophes] = useState([]); //useState
 
+    //TODO; see this code to do better or pass to Component
     const CreateStrophe = () => {
-        let ele;
+        let strophes = null;
 
         if(Object.keys(lyric).length > 0){
-            const strophes = Object.keys(lyric);
+            const strophesId = Object.keys(lyric);
             //console.log(strophe);
-            const elements = strophes.map(item => {
+            const elements = strophesId.map(item => {
                 let i = 0;
-                console.log('lyric[item]', lyric[item]);
-                return <Strophe key={item + '-' + i++} strophe={lyric[item]} />
-                //return <div>zzz</div>
-                // console.log(item + '-' + i++, lyric[item]);
-                // let sp = {desc: item + '-' + i++, 
-                //             sp: lyric[item]}
-
-                // console.log('elements in', elements)
-                // return sp;
+                //console.log('lyric[item]', lyric[item]);
+                return <Strophe key={item + '-' + i++} strophe={lyric[item]} />                
             });
 
-            ele = elements;
-
-            // console.log('element', elements);
-            //return elements;
+            strophes = elements;
         }
 
-        return (<div>{ele}</div>);
-    }
-
-    const Ele = () => {
-        return (
-            <div>hola</div> 
-        )
+        return (<Fragment>{strophes}</Fragment>);
     }
 
     const darkTheme01 = createMuiTheme({
@@ -79,7 +64,6 @@ const LyricOnly = ({ by, lyric, title }) => {
 
         <Container>
             <LyricTitle title={title} by={by} />
-            <Ele />
             {/* {createStrophe} */}
             <CreateStrophe />
         </Container>
