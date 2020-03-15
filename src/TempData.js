@@ -35,15 +35,12 @@ function GetSong(id){
     if(DataLyrics){
         if(DataLyrics.length > 0){
             const song = DataLyrics.find(item => {
-                console.log(item);
-
                 if(item.id === id){
                     return item
                 }
-
-                return item;
+                
+                return null;
             });
-            console.log(song, id);
             return song;
         }
     }

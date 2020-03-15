@@ -34,18 +34,28 @@ function App() {
     const [song, setSong] = useState({
         by: '',
         title: '',
-        lyric: []
+        lyric: {}
     });
 
     const [idSong, setIdSong] = useState('');
 
     useEffect(() => {
-        console.log('idSong', idSong);
-        GetSong(idSong)
+        const response = new Object(GetSong(idSong));
+        const respSong = new Object(response.song);
+        const respLyric = new Object(respSong.lyric)
+        // console.log(response, typeof(response), response.song);
+        // console.log(respSong);
+        setSong({
+            ...song,
+            by: respSong.by,
+            title: respSong.title,
+            lyric: respLyric
+        });
+        //console.log('reponse', song);
     }, [idSong]);
 
     const changeTheme = theme => {
-        console.log('theme', theme);
+        //console.log('theme', theme);
         setStyleTheme({
             ...styleTheme,
             bgcolor: theme.bgcolor,
@@ -58,7 +68,7 @@ function App() {
     const getSong = async id => {
         const lstSongs = GetSongs();        
         await setSong(lstSongs[0]);
-        console.log(song);
+        //console.log(song);
     }
 
     const handleSelect = e => {

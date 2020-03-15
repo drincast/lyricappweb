@@ -6,7 +6,8 @@ const Strophe = ({strophe}) => {
     let i = 0;
 
     const createParagraph = strophe.map( item => <Fragment key={i++}>{item} <br/></Fragment>);
-
+    //const createParagraph = () => {strophe.map( item => console.log('in sp', i++, item));}
+    //createParagraph();
     return (
         <Fragment>
             <Typography variant='body1'>{createParagraph}</Typography>

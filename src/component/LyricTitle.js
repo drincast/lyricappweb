@@ -2,8 +2,6 @@ import React, { Fragment } from 'react';
 import Typography from "@material-ui/core/Typography";
 
 const LyricTitle = ({ by, title }) => {
-    console.log(by, title);
-
     return (
         <Fragment>
             <Typography variant='h4' align='center'>{title}</Typography>
