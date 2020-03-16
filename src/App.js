@@ -1,3 +1,4 @@
+/* eslint-disable no-new-object */
 import React, { useEffect, useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';

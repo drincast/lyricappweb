@@ -15,11 +15,7 @@
 					"Knockin' me out with those American thighs",
 					"Taking more than her share",
 					"Had me fighting for air",
-					"She told me to come but I was already there",
-					"'Cause the walls start shaking",
-					"The earth was quaking",
-					"My mind was aching",
-					"And we were making it and you"
+					"She told me to come but I was already there"
 				],
 			"sp2": [
 					"'Cause the walls start shaking",
@@ -31,7 +27,7 @@
 					"Shook me all night long",
 					"Yeah you shook me all night long"
 				],
-				"sp4": [
+			"sp4": [
 					"Working double time",
 					"On the seduction line",
 					"She was one of a kind, she's just mine all mine",
@@ -42,13 +38,13 @@
 					"To take another round",
 					"Now I'm back in the ring to take another swing"
 				],
-				"sp5": [
+			"sp5": [
 					"'Cause the walls were shaking",
 					"The earth was quaking",
 					"My mind was aching",
 					"And we were making it and you"
 				],
-				"sp6": [
+			"sp6": [
 					"And you shook me all night long",
 					"Yeah you shook me all night long",
 					"Knocked me out I said you",
@@ -58,7 +54,7 @@
 					"Yeah you shook me",
 					"When you took me"
 				],
-				"sp7": [
+			"sp7": [
 					"You really took me and you",
 					"Shook me all night long",
 					"You shook me all night long",
@@ -95,9 +91,176 @@
 						"Just beat it, beat it, beat it, beat it",
 						"No one wants to be defeated",
 						"Showin' how funky and strong is your fight",
+						"It doesn't matter who's wrong or right",
+						"Just beat it, beat it",
+						"Just beat it, beat it",
+						"Just beat it, beat it",
+						"Just beat it, beat it"
+					],
+				"sp4": [
+						"They're out to get you, better leave while you can",
+						"Don't want to be a boy, you want to be a man",
+						"You want to stay alive, better do what you can",
+						"So beat it, just beat it"
+					],
+				"sp5": [
+						"You have to show them that you're really not scared",
+						"You're playin' with your life, this ain't no truth or dare",
+						"They'll kick you, then they beat you,",
+						"Then they'll tell you it's fair",
+						"So beat it, but you want to be bad"
+				],
+				"sp6": [
+						"Just beat it, beat it, beat it, beat it",
+						"No one wants to be defeated",
+						"Showin' how funky and strong is your fight",
 						"It doesn't matter who's wrong or right"
-					]
-				}
+				]
+			}
+				
+		}
+	},
+
+	{
+		"id":"02",
+		"song": {
+			"by": "Papa Roach",			
+			"title": "She Loves Me Not",
+			"lyric": {
+				"sp1": [
+						"When I see her eyes",
+						"Look into my eyes",
+						"Then I realize that she can see inside my head",
+						"So I close my eyes",
+						"Thinking that I could hide",
+						"Disassociate so I don't have to lose my head",
+						"This situation is to agitation",
+						"If she cut me off",
+						"Would this be an amputation?"
+					],
+				"sp2": [
+						"I don't know, if I care",
+						"I'm a jerk, life's not fair",
+						"Fighting all the time, this is out of line",
+						"She loves me not, loves me not",
+						"Do you realize I will compromise",
+						"She loves me not",
+						"Loves me not"
+					],
+				"sp3": [
+						"Over the past five years, I have shed my tears",
+						"I have drank my beers",
+						"And watched my fears fly away",
+						"And until this day",
+						"She still swings my way",
+						"But its sad to say",
+						"Sometimes she says she loves me not",
+						"But I hesitate, to tell her I hate,",
+						"This relationship, I want out today, this is over"
+					],
+				"sp4": [
+						"I don't know, if I care",
+						"I'm a jerk, life's not fair",
+						"Fighting all the time, this is out of line",
+						"She loves me not, loves me not",
+						"Do you realize I will compromise",
+						"She loves me not"
+					],
+				"sp5": [
+						"Life's not fair, I'm a jerk",
+						"Line for line, rhyme for rhyme",
+						"Sometimes we be fightin' all the goddamn time",
+						"Its makin' me sick",
+						"Relationship, is gettin' ill",
+						"Piss drunk stupid, mad on the real",
+						"Could you feel what I feel",
+						"What's the deal girl?",
+						"We're tearing up each others world",
+						"We should be in harmony, boy and girl",
+						"That is the promise we made",
+						"Back in the day",
+						"We told each other things wouldn't be this way",
+						"I think we should work this out",
+						"Its alright baby, we can scream and shout"
+				],
+				"sp6": [
+					"I don't know, if I care",
+					"I'm a jerk, life's not fair",
+					"Fighting all the time, this is out of line",
+					"She loves me not, loves me not",
+					"Do you realize I will compromise",
+					"She loves me not"
+				],
+				"sp7": [
+					"Loves me not",
+					"Life's not fair, life's not fair, life's not fair",
+					"I'm s jerk, life's not fair",
+					"She loves me not, loves me not"
+				]
+			}				
+		}
+	},
+
+	{
+		"id":"03",
+		"song": {
+			"by": "Disturbed",
+			"title": "The Sound Of Silence",
+			"lyric": {
+				"sp1": [
+						"Hello darkness, my old friend",
+						"I've come to talk with you again",
+						"Because a vision softly creeping",
+						"Left its seeds while I was sleeping",
+						"And the vision that was planted in my brain",
+						"Still remains within the sound of silence"
+					],
+				"sp2": [
+						"In restless dreams I walked alone",
+						"Narrow streets of cobblestone",
+						"'Neath the halo of a street lamp",
+						"I turned my collar to the cold and damp"
+					],
+				"sp3": [
+						"When my eyes were stabbed",
+						"By the flash of a neon light",
+						"That split the night",
+						"And touched the sound of silence"
+					],
+				"sp4": [
+						"And in the naked light I saw",
+						"Ten thousand people, maybe more",
+						"People talking without speaking",
+						"People hearing without listening"
+					],
+				"sp5": [
+						"People writing songs",
+						"That voices never share",
+						"And no one dare",
+						"Disturb the sound of silence"
+				],
+				"sp6": [
+						"Fools, said I, You do not know",
+						"Silence like a cancer grows",
+						"Hear my words that I might teach you",
+						"Take my arms that I might reach you",
+						"But my words like silent raindrops fell",
+						"And echoed in the wells of silence"
+				],
+				"sp7": [
+						"And the people bowed and prayed",
+						"To the neon God they made",
+						"And the sign flashed out it's warning",
+						"And the words that it was forming"
+				],
+				"sp8": [
+						"And the sign said",
+						"The words of the prophets",
+						"Are written on the subway walls",
+						"And tenement halls",
+						"And whispered in the sound of silence"
+				]
+			}				
 		}
 	}
 ]
