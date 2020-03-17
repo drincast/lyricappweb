@@ -1,8 +1,8 @@
 /* eslint-disable no-new-object */
 import React, { useEffect, useState } from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { styled, makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
@@ -12,19 +12,6 @@ import StyleTheme from './component/StyleTheme';
 
 import { GetSong, GetSongs} from './TempData';
 import DataThemes from './DataThemes.json';
-
-const StlMuiContainerPpal = withStyles({
-    root:{        
-        backgroundColor: '#000',
-        color: 'white'
-    },
-})(Container);
-
-const useStyles = makeStyles(theme => ({
-    selectEmpy:{
-        marginTop: theme.spacing(2)
-    }
-}));
 
 function App() {
     const [styleTheme, setStyleTheme] = useState({
@@ -43,17 +30,16 @@ function App() {
     useEffect(() => {
         const response = new Object(GetSong(idSong));
         const respSong = new Object(response.song);
-        const respLyric = new Object(respSong.lyric)
-        // console.log(response, typeof(response), response.song);
-        // console.log(respSong);
+        const respLyric = new Object(respSong.lyric);
+
         setSong({
             ...song,
             by: respSong.by,
             title: respSong.title,
             lyric: respLyric
         });
-        //console.log('reponse', song);
-    }, [idSong]);
+
+    }, [idSong, ]);
 
     //Styles
     const StlSelect = withStyles({
@@ -82,6 +68,23 @@ function App() {
         },
         
     })(Select);
+
+    const StlGridHead = withStyles({
+        root: {
+            paddingBottom: '32px'
+        }
+    })(Grid);
+
+    const StlGridHead2 = styled(Grid)({
+        paddingBottom: '32px'
+    });
+
+    const useStyleGrid = makeStyles({
+        root: {
+            paddingBottom: '32px'
+        }
+    });
+    const classes = useStyleGrid();
 
     const changeTheme = theme => {
         //console.log('theme', theme);
@@ -117,22 +120,35 @@ function App() {
     }
 
     return (
-        <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>
+        // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
-                <Header />
-                <StyleTheme changeTheme={changeTheme} />
-                <StlSelect id='Song'
-                    value={idSong}
-                    onChange={handleSelect}>
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    {getLstSongs()}
-                </StlSelect>
-                <button onClick={getSong}>song</button>
-                <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
+                
+                <Grid container spacing={0} className={classes.root}>
+                    <Grid item xs={10}>
+                        <Header />                        
+                    </Grid>
+                    <Grid item xs={2}>
+                        <StyleTheme changeTheme={changeTheme} />                        
+                    </Grid>
+                </Grid>
+                <Grid container justify="center" spacing={1}>
+                    <Grid item xs={7}>                    
+                        <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
+                    </Grid>
+                    <Grid item xs={5}>
+                        <StlSelect id='Song'
+                            value={idSong}
+                            onChange={handleSelect}>
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            {getLstSongs()}
+                        </StlSelect>
+                        <button onClick={getSong}>song</button>
+                    </Grid>
+                </Grid>         
             </Box>
-        </div>
+        // </div>
     );
 }
 
