@@ -1,4 +1,5 @@
 import DataLyrics from './DataLyrics.json';
+import DataLyricsTranslate from './DataLyricsTranslate.json';
 
 let song = {
     by: 'Michael Jackson',
@@ -46,11 +47,27 @@ function GetSong(id){
     }
 }
 
+function GetSongTranslate(id){
+    if(DataLyricsTranslate){
+        if(DataLyricsTranslate.length > 0){
+            const song = DataLyricsTranslate.find(item => {
+                if(item.id === id){
+                    return item
+                }
+                
+                return null;
+            });
+            return song;
+        }
+    }
+}
+
 function GetSongs(){
     return lstSongs;
 }
 
 export {
     GetSong,
+    GetSongTranslate,
     GetSongs
 }

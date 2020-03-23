@@ -2,15 +2,18 @@
 import React, { useEffect, useState } from 'react';
 import { styled, makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
+import FormControl from '@material-ui/core/FormControl';
 import Grid from '@material-ui/core/Grid';
-import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 import Header from './component/Header';
 import LyricOnly from './component/LyricOnly';
+import LyricTranslate from './component/LyricTranslate';
 import StyleTheme from './component/StyleTheme';
 
-import { GetSong, GetSongs} from './TempData';
+import { GetSong, GetSongTranslate, GetSongs} from './TempData';
 import DataThemes from './DataThemes.json';
 
 function App() {
@@ -25,18 +28,36 @@ function App() {
         lyric: {}
     });
 
+    const [songTranslate, setSongTranslate] = useState({
+        by: '',
+        title: '',
+        lyric: {}
+    });
+
     const [idSong, setIdSong] = useState('');
 
     useEffect(() => {
         const response = new Object(GetSong(idSong));
+        const responseT = new Object(GetSongTranslate(idSong));
+
         const respSong = new Object(response.song);
         const respLyric = new Object(respSong.lyric);
+
+        const respSongT = new Object(responseT.song);
+        const respLyricT = new Object(respSongT.lyric);
 
         setSong({
             ...song,
             by: respSong.by,
             title: respSong.title,
             lyric: respLyric
+        });
+
+        setSongTranslate({
+            ...songTranslate,
+            by: respSongT.by,
+            title: respSongT.title,
+            lyric: respLyricT
         });
 
     }, [idSong, ]);
@@ -53,6 +74,7 @@ function App() {
                     underline: {borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',}
                 },
             },
+            
         },
         select:{
             color: styleTheme.bgcolor === 'white' ? 'black' : 'white',
@@ -60,13 +82,11 @@ function App() {
             borderColor: 'white',
             '&:after':{
                 underline: {borderColor: styleTheme.bgcolor === 'white' ? 'black' : 'white',},
-            } 
-                        
+            },                  
         },
         icon: {
             color: styleTheme.bgcolor === 'white' ? 'black' : 'white',
         },
-        
     })(Select);
 
     const StlGridHead = withStyles({
@@ -82,6 +102,13 @@ function App() {
     const useStyleGrid = makeStyles({
         root: {
             paddingBottom: '32px'
+        },
+        formControl: {
+            margin: 10,
+            minWidth: 180,            
+        },
+        textCenter: {
+            textAlign: 'center'
         }
     });
     const classes = useStyleGrid();
@@ -121,8 +148,7 @@ function App() {
 
     return (
         // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
-            <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
-                
+            <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>                
                 <Grid container spacing={0} className={classes.root}>
                     <Grid item xs={10}>
                         <Header />                        
@@ -132,19 +158,30 @@ function App() {
                     </Grid>
                 </Grid>
                 <Grid container justify="center" spacing={1}>
-                    <Grid item xs={7}>                    
+                    <Grid item xs={12} className={classes.textCenter}>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="labelSelectLyric">Seleciona la canción</InputLabel>
+                            <StlSelect id='Song'
+                                labelId="labelSelectLyric"
+                                value={idSong}
+                                onChange={handleSelect}>
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                {getLstSongs()}
+                            </StlSelect>
+                        </FormControl>
+                        
+                        {/* <button onClick={getSong}>song</button> */}
+                    </Grid>
+                    {/* <Grid item xs={6}>                    
                         <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
                     </Grid>
-                    <Grid item xs={5}>
-                        <StlSelect id='Song'
-                            value={idSong}
-                            onChange={handleSelect}>
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            {getLstSongs()}
-                        </StlSelect>
-                        <button onClick={getSong}>song</button>
+                    <Grid item xs={6}>                    
+                        <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title}/>                        
+                    </Grid> */}
+                    <Grid item xs={6}>
+                        <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
                     </Grid>
                 </Grid>         
             </Box>
