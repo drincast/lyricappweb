@@ -1,5 +1,5 @@
 /* eslint-disable no-new-object */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import { styled, makeStyles, withStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import FormControl from '@material-ui/core/FormControl';
@@ -8,6 +8,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+
+
 import Header from './component/Header';
 import LyricOnly from './component/LyricOnly';
 import LyricTranslate from './component/LyricTranslate';
@@ -15,6 +19,10 @@ import StyleTheme from './component/StyleTheme';
 
 import { GetSong, GetSongTranslate, GetSongs} from './TempData';
 import DataThemes from './DataThemes.json';
+
+const menuOption = ['left', 'right', 'top', 'bottom'];
+const visualOptionLyric = ['Solo_Lyric', 'Dos_Columnas', 'Por_Estrofa'];
+
 
 function App() {
     const [styleTheme, setStyleTheme] = useState({
@@ -35,6 +43,10 @@ function App() {
     });
 
     const [idSong, setIdSong] = useState('');
+
+    const [opctionMenuLyric, setOpctionMenuLyric] = useState(null);
+
+    const [selOpctionMenuLyric, setSelOpctionMenuLyric] = useState('');
 
     useEffect(() => {
         const response = new Object(GetSong(idSong));
@@ -146,6 +158,16 @@ function App() {
         return null;
     }
 
+    const handleClickMenuLyric = (event) => {
+        setOpctionMenuLyric(event.currentTarget);
+        
+    };
+
+    const handleCloseMenuLyric = (event) => {
+        setOpctionMenuLyric(null);
+        setSelOpctionMenuLyric(event.currentTarget.textContent);
+    };
+
     return (
         // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>                
@@ -154,8 +176,27 @@ function App() {
                         <Header />                        
                     </Grid>
                     <Grid item xs={2}>
-                        <StyleTheme changeTheme={changeTheme} />                        
+                        <Grid item xs={12}>
+                            <StyleTheme changeTheme={changeTheme} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button aria-controls="optionMenuLyric" aria-haspopup="true" onClick={handleClickMenuLyric}>
+                                Tipo de Lyric
+                            </Button>
+                            <Menu                                
+                                id="optionMenuLyric"
+                                anchorEl={opctionMenuLyric}
+                                keepMounted
+                                open={Boolean(opctionMenuLyric)}
+                                onClose={handleCloseMenuLyric}
+                            >
+                                <MenuItem onClick={handleCloseMenuLyric}>Solo Lyric</MenuItem>
+                                <MenuItem onClick={handleCloseMenuLyric}>Dos Columnas</MenuItem>
+                                <MenuItem onClick={handleCloseMenuLyric}>Por estrofa</MenuItem>
+                            </Menu>
+                        </Grid>
                     </Grid>
+                    
                 </Grid>
                 <Grid container justify="center" spacing={1}>
                     <Grid item xs={12} className={classes.textCenter}>
@@ -174,15 +215,37 @@ function App() {
                         
                         {/* <button onClick={getSong}>song</button> */}
                     </Grid>
-                    {/* <Grid item xs={6}>                    
-                        <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
-                    </Grid>
-                    <Grid item xs={6}>                    
-                        <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title}/>                        
-                    </Grid> */}
-                    <Grid item xs={6}>
-                        <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
-                    </Grid>
+                    {
+                        selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas' ?
+                            <Grid item xs={6}>
+                                <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
+                            </Grid>
+                        :
+                            null
+                    }
+
+                    {
+                        selOpctionMenuLyric === 'Dos Columnas' ?
+                            <Grid item xs={6}>                    
+                                <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title}/>                        
+                            </Grid>
+                        :
+                            null
+                    }
+
+                    {
+                        selOpctionMenuLyric === 'Por estrofa' ?
+                            <Grid item xs={7}>
+                                <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
+                            </Grid>
+                        :
+                            null
+                    }
+                    
+                    
+                    
+
+                    
                 </Grid>         
             </Box>
         // </div>

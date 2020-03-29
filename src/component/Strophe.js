@@ -2,14 +2,16 @@ import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography";
 
-const useStyle = makeStyles({
+const useStyle = makeStyles(theme => ({
     root: {
         backgroundColor: '#555',
         color: '#eee'
     },
-});
+    
+}));
 
-const Strophe = ({strophe, isTranslated}) => {
+//const Strophe = ({strophe, isTranslated}) => {
+const Strophe = ({ strophe }) => {
     //const createParagraph = strophe.map( item => <p>{item}</p>);
     let i = 0;
 
@@ -19,16 +21,17 @@ const Strophe = ({strophe, isTranslated}) => {
     
     const classes = useStyle();
 
-    const stropheType = isTranslated ?
-        <Typography variant='body1' className={classes.root}>{createParagraph}</Typography>
-        :
-        <Typography variant='body1'>{createParagraph}</Typography>
+    // const stropheType = isTranslated ?
+    //     <Typography variant='body1' className={classes.root}>{createParagraph}</Typography>
+    //     :
+    //     <Typography variant='body1'>{createParagraph}</Typography>
 
     return (
         <Fragment>
-            {stropheType}
-            <br />
+            {/* {stropheType} */}
+            {/* <br /> */}
             {/* <p>{createParagraph}</p> */}
+            <Typography variant='body1'>{createParagraph}</Typography>
         </Fragment>
     );
 }
