@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Switch from '@material-ui/core/Switch';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import { withStyles } from '@material-ui/styles';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const StyleTheme = ({ changeTheme }) => {
     const [checkDarkMode, setCheckDarkMode] = useState(false);
@@ -43,17 +44,26 @@ const StyleTheme = ({ changeTheme }) => {
 
     return (
         <Fragment>
-            <FormControlLabel
-                control={<StlSwitchDM checked={checkDarkMode}
-                            onChange={handleChange}
-                            value="themeDrackMode"
-                            id="themeDrackMode"
-                            name="themeDrackMode"
-                            color="primary"
-                            inputProps={{ 'aria-label': 'black checkbox' }} />}
-                label='Darck mode'
-                labelPlacement='top'>
-            </FormControlLabel>
+            <Tooltip title='Darck Mode' placement='bottom'>
+                <StlSwitchDM checked={checkDarkMode}
+                                onChange={handleChange}
+                                value="themeDrackMode"
+                                id="themeDrackMode"
+                                name="themeDrackMode"
+                                color="primary"
+                                inputProps={{ 'aria-label': 'black checkbox' }} />
+                {/* <FormControlLabel
+                    control={<StlSwitchDM checked={checkDarkMode}
+                                onChange={handleChange}
+                                value="themeDrackMode"
+                                id="themeDrackMode"
+                                name="themeDrackMode"
+                                color="primary"
+                                inputProps={{ 'aria-label': 'black checkbox' }} />}
+                    label='Darck mode'
+                    labelPlacement='top'>
+                </FormControlLabel> */}
+            </Tooltip>
         </Fragment>
     );
 }

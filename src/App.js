@@ -7,14 +7,15 @@ import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import Tooltip from '@material-ui/core/Tooltip';
 
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
+
 
 
 import Header from './component/Header';
 import LyricOnly from './component/LyricOnly';
 import LyricTranslate from './component/LyricTranslate';
+import MenuLink from './component/MenuLink';
 import StyleTheme from './component/StyleTheme';
 
 import { GetSong, GetSongTranslate, GetSongs} from './TempData';
@@ -44,9 +45,9 @@ function App() {
 
     const [idSong, setIdSong] = useState('');
 
-    const [opctionMenuLyric, setOpctionMenuLyric] = useState(null);
+    // const [opctionMenuLyric, setOpctionMenuLyric] = useState(null);
 
-    const [selOpctionMenuLyric, setSelOpctionMenuLyric] = useState('');
+    const [selOpctionMenuLyric, setSelOpctionMenuLyric] = useState('Solo Lyric');
 
     useEffect(() => {
         const response = new Object(GetSong(idSong));
@@ -158,15 +159,15 @@ function App() {
         return null;
     }
 
-    const handleClickMenuLyric = (event) => {
-        setOpctionMenuLyric(event.currentTarget);
+    // const handleClickMenuLyric = (event) => {
+    //     setOpctionMenuLyric(event.currentTarget);
         
-    };
+    // };
 
-    const handleCloseMenuLyric = (event) => {
-        setOpctionMenuLyric(null);
-        setSelOpctionMenuLyric(event.currentTarget.textContent);
-    };
+    // const handleCloseMenuLyric = (event) => {
+    //     setOpctionMenuLyric(null);
+    //     setSelOpctionMenuLyric(event.currentTarget.textContent);
+    // };
 
     return (
         // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
@@ -176,12 +177,16 @@ function App() {
                         <Header />                        
                     </Grid>
                     <Grid item xs={2}>
-                        <Grid item xs={12}>
+                        <Grid item xs={12}>                            
                             <StyleTheme changeTheme={changeTheme} />
                         </Grid>
                         <Grid item xs={12}>
-                            <Button aria-controls="optionMenuLyric" aria-haspopup="true" onClick={handleClickMenuLyric}>
-                                Tipo de Lyric
+                            <MenuLink functionSelection={setSelOpctionMenuLyric} 
+                                    defaultSelected={0}
+                                    nameMenu='Liryc'
+                                    options={['Solo Lyric', 'Dos Columnas', 'Por estrofa']}/>
+                            {/* <Button aria-controls="optionMenuLyric" aria-haspopup="true" onClick={handleClickMenuLyric}>
+                                Visualizar
                             </Button>
                             <Menu                                
                                 id="optionMenuLyric"
@@ -193,25 +198,27 @@ function App() {
                                 <MenuItem onClick={handleCloseMenuLyric}>Solo Lyric</MenuItem>
                                 <MenuItem onClick={handleCloseMenuLyric}>Dos Columnas</MenuItem>
                                 <MenuItem onClick={handleCloseMenuLyric}>Por estrofa</MenuItem>
-                            </Menu>
+                            </Menu> */}
                         </Grid>
                     </Grid>
                     
                 </Grid>
                 <Grid container justify="center" spacing={1}>
                     <Grid item xs={12} className={classes.textCenter}>
-                        <FormControl className={classes.formControl}>
-                            <InputLabel id="labelSelectLyric">Seleciona la canción</InputLabel>
-                            <StlSelect id='Song'
-                                labelId="labelSelectLyric"
-                                value={idSong}
-                                onChange={handleSelect}>
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                {getLstSongs()}
-                            </StlSelect>
-                        </FormControl>
+                        <Tooltip title="Seleccionar Canción" placement="top">
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="labelSelectLyric">Seleciona la canción</InputLabel>
+                                <StlSelect id='Song'
+                                    labelId="labelSelectLyric"
+                                    value={idSong}
+                                    onChange={handleSelect}>
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    {getLstSongs()}
+                                </StlSelect>
+                            </FormControl>
+                        </Tooltip>
                         
                         {/* <button onClick={getSong}>song</button> */}
                     </Grid>
@@ -241,11 +248,6 @@ function App() {
                         :
                             null
                     }
-                    
-                    
-                    
-
-                    
                 </Grid>         
             </Box>
         // </div>
