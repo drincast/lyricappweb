@@ -4,7 +4,9 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-const MenuLink = ({functionSelection, nameMenu, options }) => {
+import StyleThemeApp from './StyleThemeApp'
+
+const MenuLink = ({functionSelection, nameMenu, options, styleTheme }) => {
     const [opctionMenu, setOpctionMenu] = useState(null);    
 
     const handleClick = (event) => {
@@ -23,16 +25,21 @@ const MenuLink = ({functionSelection, nameMenu, options }) => {
             return <MenuItem key={i++}
                 onClick={handleCloseOption}>{item}</MenuItem>
         })
-    })
+    });
 
+    const styleCss = styleTheme === 'white' ?
+                        StyleThemeApp().root
+                        :
+                        StyleThemeApp().rootBlack;
+                        
     return (
         <Fragment>
-            <Button aria-controls={'optionMenu_' + nameMenu} aria-haspopup="true" onClick={handleClick}>
+            <Button className={styleCss} aria-controls={'optionMenu_' + nameMenu} aria-haspopup="true" onClick={handleClick}>
                 Visualizar
             </Button>
             <Menu
+                anchorEl={opctionMenu}                
                 id={'optionMenu_' + nameMenu}
-                anchorEl={opctionMenu}
                 keepMounted
                 open={Boolean(opctionMenu)}
                 onClose={handleCloseOption}
