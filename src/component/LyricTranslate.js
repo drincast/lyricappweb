@@ -26,7 +26,7 @@ const LyricTranslate = ({ by, lyric, lyricT, title }) => {
     const classes = useStyles();
 
     //TODO; see this code to do better or pass to Component
-    const CreateStrophe = () => {
+    const CreateLyric = () => {
         let strophes = null;
         let elements = [];
         let i = 0;
@@ -56,7 +56,7 @@ const LyricTranslate = ({ by, lyric, lyricT, title }) => {
     return (
         <Container>
             <LyricTitle title={title} by={by} />
-            <CreateStrophe />
+            <CreateLyric />
         </Container>
     );
 }

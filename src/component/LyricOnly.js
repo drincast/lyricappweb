@@ -1,24 +1,21 @@
 import React, { Fragment } from 'react';
-import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 import LyricTitle from "./LyricTitle";
 import Strophe from './Strophe';
 
 const LyricOnly = ({ by, lyric, title }) => {
-    // const createStrophe = lyric.map( item => <Strophe key={i++} strophe={item} /> );    
-    //const createStrophe = lyric.length ? lyric.map( item => <Strophe key={i++} strophe={item} /> ) : null;
-
     //TODO; see this code to do better or pass to Component
-    const CreateStrophe = () => {
+    const CreateLyric = () => {
         let strophes = null;
 
         if(Object.keys(lyric).length > 0){
             const strophesId = Object.keys(lyric);
-            //console.log(strophe);
+
             const elements = strophesId.map(item => {
                 let i = 0;
-                //console.log('lyric[item]', lyric[item]);
-                return <Strophe key={item + '-' + i++} strophe={lyric[item]} />                
+
+                return (<Strophe key={item + '-' + i++} strophe={lyric[item]} />)
             });
 
             strophes = elements;
@@ -28,11 +25,14 @@ const LyricOnly = ({ by, lyric, title }) => {
     }
 
     return (
-        <Container>
-            <LyricTitle title={title} by={by} />
-            {/* {createStrophe} */}
-            <CreateStrophe />
-        </Container>        
+        <Grid container justify='center' spacing={0}>
+            <Grid item xs={12}>
+                <LyricTitle title={title} by={by} />
+            </Grid>
+            <Grid item xs={12}>
+                <CreateLyric />
+            </Grid>
+        </Grid>
     );
 }
 

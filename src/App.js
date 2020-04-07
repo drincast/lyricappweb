@@ -17,10 +17,26 @@ import { GetSong, GetSongTranslate, GetSongs} from './TempData';
 // import DataThemes from './DataThemes.json';
 
 function App() {
+    const [darckThemeSelected, setDarckThemeSelected] = useState(false);
     const [styleTheme, setStyleTheme] = useState({
         bgcolor: 'white',
         color: 'black'
     });
+    useEffect(() => {
+        let style = {
+            bgcolor: 'white',
+            color: 'black'
+        }
+
+        if(darckThemeSelected){
+            style = {
+                bgcolor: 'black',
+                color: 'white'
+            }
+        }
+
+        setStyleTheme(style);
+    }, [darckThemeSelected]) 
 
     const [song, setSong] = useState({
         by: '',
@@ -106,11 +122,11 @@ function App() {
             <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>                
                 <Grid container spacing={0} className={classes.root}>
                     <Grid item xs={10}>
-                        <Header />                        
+                        <Header title='LyricApp Web'/>                        
                     </Grid>
                     <Grid item xs={2}>
                         <Grid item xs={12}>                            
-                            <StyleTheme changeTheme={changeTheme} />
+                            <StyleTheme changeTheme={changeTheme} setOptionChecked={setDarckThemeSelected} styleTheme={styleTheme}/>
                         </Grid>
                         <Grid item xs={12}>
                             <MenuLink functionSelection={setSelOpctionMenuLyric} 
@@ -123,12 +139,11 @@ function App() {
                 </Grid>
                 <Grid container justify="center" spacing={1}>
                     <Grid item xs={12} className={classes.textCenter}>
-                        {/* <button onClick={getSong}>song</button> */}
                         <SelectOptions data={DataThemes} idItem={idSong} setIdItem={setIdSong} styleTheme={styleTheme} />
                     </Grid>
                     {
                         selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas' ?
-                            <Grid item xs={6}>
+                            <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>
                                 <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
                             </Grid>
                         :

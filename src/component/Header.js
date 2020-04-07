@@ -8,9 +8,9 @@ const StlTypography = styled(({ ...other }) => <Typography { ...other } /> )({
     letterSpacing: 0
 });
 
-const Header = () => {
+const Header = ({ title }) => {
     return (
-        <StlTypography variant='h1' align='center'>LyricApp Web</StlTypography>
+        <StlTypography variant='h1' align='center'>{ title }</StlTypography>
     );
 }
 
