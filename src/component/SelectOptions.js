@@ -7,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import Tooltip from '@material-ui/core/Tooltip';
 
-const SelectOptions = ({data, idItem, setIdItem, styleTheme}) => {
+const SelectOptions = ({data, idItem, setIdItem, setLoadOption, styleTheme}) => {
     const getLstSongs = () => {
         if(data.length > 0){
             const items = data.map(item => {
@@ -21,7 +21,12 @@ const SelectOptions = ({data, idItem, setIdItem, styleTheme}) => {
     }
 
     const handleSelect = e => {
-        setIdItem(e.target.value);
+        setLoadOption(true);
+
+        setTimeout(() => {
+            setLoadOption(false)
+            setIdItem(e.target.value);            
+        }, 3000);
     }
 
     const useStyle = makeStyles({

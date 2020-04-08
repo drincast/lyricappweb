@@ -9,6 +9,7 @@ import LyricOnly from './component/LyricOnly';
 import LyricTranslate from './component/LyricTranslate';
 import MenuLink from './component/MenuLink';
 import SelectOptions from './component/SelectOptions';
+import SpinnerDoubleBounce from './component/SpinnerDoubleBounce'
 import StyleTheme from './component/StyleTheme';
 
 //DATA
@@ -102,11 +103,25 @@ function App() {
         document.getElementById('root').style.backgroundColor = theme.bgcolor;
     }
 
+    const [loadSpinner, setLoadSpinner] = useState(false);
+
     // const getSong = async id => {
     //     const lstSongs = GetSongs();        
     //     await setSong(lstSongs[0]);
     //     //console.log(song);
     // }
+
+    //Components sections
+    // const CLyricOnly = loadSpinner ?
+    //                             <SpinnerDoubleBounce />
+    //                             :
+    //                             <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
+
+    const ForStrophe = loadSpinner ?
+                                <SpinnerDoubleBounce />
+                                :
+                                <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
+                        
 
     return (
         // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
@@ -130,19 +145,32 @@ function App() {
                 </Grid>
                 <Grid container justify="center" spacing={1}>
                     <Grid item xs={12} className={classes.textCenter}>
-                        <SelectOptions data={DataThemes} idItem={idSong} setIdItem={setIdSong} styleTheme={styleTheme} />
+                        <SelectOptions data={DataThemes} idItem={idSong} 
+                            setIdItem={setIdSong} setLoadOption={setLoadSpinner} 
+                            styleTheme={styleTheme} />
                     </Grid>
                     {
-                        selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas' ?
+                        loadSpinner ?
+                            <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>                                
+                                <SpinnerDoubleBounce color='#555'/>
+                            </Grid>
+                            :
+                            null
+                    }
+                    
+                    {
+                        (selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas') && !loadSpinner ?
                             <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>
                                 <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
+                                {/* { CLyricOnly } */}
+                                
                             </Grid>
                         :
                             null
                     }
 
                     {
-                        selOpctionMenuLyric === 'Dos Columnas' ?
+                        selOpctionMenuLyric === 'Dos Columnas' && !loadSpinner ?
                             <Grid item xs={6}>                    
                                 <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title}/>                        
                             </Grid>
@@ -151,7 +179,7 @@ function App() {
                     }
 
                     {
-                        selOpctionMenuLyric === 'Por estrofa' ?
+                        selOpctionMenuLyric === 'Por estrofa' && !loadSpinner?
                             <Grid item xs={7}>
                                 <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
                             </Grid>
