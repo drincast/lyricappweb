@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 
 import LyricTitle from "./LyricTitle";
@@ -34,6 +35,12 @@ const LyricOnly = ({ by, lyric, title }) => {
             </Grid>
         </Grid>
     );
+}
+
+LyricOnly.prototype = {
+    by: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    lyric:  PropTypes.array.isRequired
 }
 
 export default LyricOnly;

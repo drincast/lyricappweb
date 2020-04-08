@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -68,4 +69,12 @@ const SelectOptions = ({data, idItem, setIdItem, styleTheme}) => {
         </Tooltip>
     );
 }
+
+SelectOptions.prototype = {
+    data: PropTypes.array.isRequired, 
+    idItem: PropTypes.string.isRequired, 
+    setIdItem: PropTypes.func.isRequired, 
+    styleTheme: PropTypes.object.isRequired
+}
+
 export default SelectOptions;

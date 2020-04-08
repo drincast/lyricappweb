@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
@@ -6,7 +7,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 import StyleThemeApp from './StyleThemeApp'
 
-const MenuLink = ({functionSelection, nameMenu, options, styleTheme }) => {
+const MenuLink = ({ functionSelection, nameMenu, options, styleTheme }) => {
     const [opctionMenu, setOpctionMenu] = useState(null);    
 
     const handleClick = (event) => {
@@ -50,4 +51,13 @@ const MenuLink = ({functionSelection, nameMenu, options, styleTheme }) => {
         
     );
 }
+
+MenuLink.prototype = {
+    functionSelection: PropTypes.func.isRequired, 
+    nameMenu: PropTypes.string.isRequired, 
+    options: PropTypes.array.isRequired,
+    styleTheme: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+}
+
 export default MenuLink;

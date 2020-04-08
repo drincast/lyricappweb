@@ -1,6 +1,6 @@
 /* eslint-disable no-new-object */
 import React, { useEffect, useState } from 'react';
-import { styled, makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 
@@ -13,7 +13,7 @@ import StyleTheme from './component/StyleTheme';
 
 //DATA
 import DataThemes from './DataThemes.json';
-import { GetSong, GetSongTranslate, GetSongs} from './TempData';
+import { GetSong, GetSongTranslate } from './TempData';
 // import DataThemes from './DataThemes.json';
 
 function App() {
@@ -78,17 +78,8 @@ function App() {
             lyric: respLyricT
         });
 
-    }, [idSong, ]);
-
-    const StlGridHead = withStyles({
-        root: {
-            paddingBottom: '32px'
-        }
-    })(Grid);
-
-    const StlGridHead2 = styled(Grid)({
-        paddingBottom: '32px'
-    });
+    }, // eslint-disable-next-line
+    [idSong]);
 
     const useStyleGrid = makeStyles({
         root: {
@@ -111,11 +102,11 @@ function App() {
         document.getElementById('root').style.backgroundColor = theme.bgcolor;
     }
 
-    const getSong = async id => {
-        const lstSongs = GetSongs();        
-        await setSong(lstSongs[0]);
-        //console.log(song);
-    }
+    // const getSong = async id => {
+    //     const lstSongs = GetSongs();        
+    //     await setSong(lstSongs[0]);
+    //     //console.log(song);
+    // }
 
     return (
         // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            

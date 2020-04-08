@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 
 const Strophe = ({ strophe }) => {
@@ -12,6 +13,10 @@ const Strophe = ({ strophe }) => {
             <br />
         </Fragment>
     );
+}
+
+Strophe.prototype = {
+    strophe: PropTypes.array.isRequired
 }
 
 export default Strophe;

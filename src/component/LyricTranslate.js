@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
@@ -60,4 +61,12 @@ const LyricTranslate = ({ by, lyric, lyricT, title }) => {
         </Container>
     );
 }
+
+LyricTranslate.prototype = {
+    by: PropTypes.string.isRequired, 
+    lyric: PropTypes.array.isRequired, 
+    lyricT: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired
+}
+
 export default LyricTranslate;

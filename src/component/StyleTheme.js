@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import PropTypes from 'prop-types';
 import Switch from '@material-ui/core/Switch';
 import { withStyles } from '@material-ui/styles';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -40,6 +41,10 @@ const StyleTheme = ({ setOptionChecked }) => {
             </Tooltip>
         </Fragment>
     );
+}
+
+StyleTheme.prototype = {
+    setOptionChecked: PropTypes.func.isRequired
 }
 
 export default StyleTheme;

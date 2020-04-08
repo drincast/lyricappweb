@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 
 import './LyricTitle.css';
@@ -10,6 +11,11 @@ const LyricTitle = ({ by, title }) => {
             <Typography variant='h6' align='center'>{by}</Typography>
         </div>
     );
+}
+
+LyricTitle.prototype = {
+    by: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 }
 
 export default LyricTitle;

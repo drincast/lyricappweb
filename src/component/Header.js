@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from "@material-ui/core/Typography";
 import { styled } from "@material-ui/core/styles";
 
@@ -12,6 +13,10 @@ const Header = ({ title }) => {
     return (
         <StlTypography variant='h1' align='center'>{ title }</StlTypography>
     );
+}
+
+Header.prototype = {
+    title: PropTypes.string.isRequired
 }
 
 export default Header;
