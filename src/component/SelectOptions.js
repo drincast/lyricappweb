@@ -26,7 +26,7 @@ const SelectOptions = ({data, idItem, setIdItem, setLoadOption, styleTheme}) => 
         setTimeout(() => {
             setLoadOption(false)
             setIdItem(e.target.value);            
-        }, 3000);
+        }, 1500);
     }
 
     const useStyle = makeStyles({

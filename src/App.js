@@ -105,90 +105,70 @@ function App() {
 
     const [loadSpinner, setLoadSpinner] = useState(false);
 
-    // const getSong = async id => {
-    //     const lstSongs = GetSongs();        
-    //     await setSong(lstSongs[0]);
-    //     //console.log(song);
-    // }
-
-    //Components sections
-    // const CLyricOnly = loadSpinner ?
-    //                             <SpinnerDoubleBounce />
-    //                             :
-    //                             <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>
-
-    const ForStrophe = loadSpinner ?
-                                <SpinnerDoubleBounce />
-                                :
-                                <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
-                        
-
     return (
-        // <div style={{backgroundColor: styleTheme.bgcolor, height: window.screen.height}}>            
-            <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>                
-                <Grid container spacing={0} className={classes.root}>
-                    <Grid item xs={10}>
-                        <Header title='LyricApp Web'/>                        
-                    </Grid>
-                    <Grid item xs={2}>
-                        <Grid item xs={12}>                            
-                            <StyleTheme changeTheme={changeTheme} setOptionChecked={setDarckThemeSelected} styleTheme={styleTheme}/>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <MenuLink functionSelection={setSelOpctionMenuLyric} 
-                                    defaultSelected={0}
-                                    nameMenu='Liryc'
-                                    options={['Solo Lyric', 'Dos Columnas', 'Por estrofa']}
-                                    styleTheme={styleTheme.bgcolor}/>
-                        </Grid>
-                    </Grid>                    
+        <Box bgcolor={styleTheme.bgcolor} color={styleTheme.color} height='100%'>
+            <Grid container spacing={0} className={classes.root}>
+                <Grid item xs={10}>
+                    <Header title='LyricApp Web' />
                 </Grid>
-                <Grid container justify="center" spacing={1}>
-                    <Grid item xs={12} className={classes.textCenter}>
-                        <SelectOptions data={DataThemes} idItem={idSong} 
-                            setIdItem={setIdSong} setLoadOption={setLoadSpinner} 
-                            styleTheme={styleTheme} />
+                <Grid item xs={2}>
+                    <Grid item xs={12}>
+                        <StyleTheme changeTheme={changeTheme} setOptionChecked={setDarckThemeSelected} styleTheme={styleTheme} />
                     </Grid>
-                    {
-                        loadSpinner ?
-                            <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>                                
-                                <SpinnerDoubleBounce color='#555'/>
-                            </Grid>
-                            :
-                            null
-                    }
-                    
-                    {
-                        (selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas') && !loadSpinner ?
-                            <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>
-                                <LyricOnly by={song.by} lyric={song.lyric} title={song.title}/>                        
-                                {/* { CLyricOnly } */}
-                                
-                            </Grid>
+                    <Grid item xs={12}>
+                        <MenuLink functionSelection={setSelOpctionMenuLyric}
+                            defaultSelected={0}
+                            nameMenu='Liryc'
+                            options={['Solo Lyric', 'Dos Columnas', 'Por estrofa']}
+                            styleTheme={styleTheme.bgcolor} />
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid container justify="center" spacing={1}>
+                <Grid item xs={12} className={classes.textCenter}>
+                    <SelectOptions data={DataThemes} idItem={idSong}
+                        setIdItem={setIdSong} setLoadOption={setLoadSpinner}
+                        styleTheme={styleTheme} />
+                </Grid>
+                {
+                    loadSpinner ?
+                        <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>
+                            <SpinnerDoubleBounce color='#555' />
+                        </Grid>
                         :
-                            null
-                    }
+                        null
+                }
 
-                    {
-                        selOpctionMenuLyric === 'Dos Columnas' && !loadSpinner ?
-                            <Grid item xs={6}>                    
-                                <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title}/>                        
-                            </Grid>
-                        :
-                            null
-                    }
+                {
+                    (selOpctionMenuLyric === 'Solo Lyric' || selOpctionMenuLyric === 'Dos Columnas') && !loadSpinner ?
+                        <Grid item xs={selOpctionMenuLyric === 'Solo Lyric' ? 8 : 6}>
+                            <LyricOnly by={song.by} lyric={song.lyric} title={song.title} />
+                            {/* { CLyricOnly } */}
 
-                    {
-                        selOpctionMenuLyric === 'Por estrofa' && !loadSpinner?
-                            <Grid item xs={7}>
-                                <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
-                            </Grid>
+                        </Grid>
                         :
-                            null
-                    }
-                </Grid>         
-            </Box>
-        // </div>
+                        null
+                }
+
+                {
+                    selOpctionMenuLyric === 'Dos Columnas' && !loadSpinner ?
+                        <Grid item xs={6}>
+                            <LyricOnly by={songTranslate.by} lyric={songTranslate.lyric} title={songTranslate.title} />
+                        </Grid>
+                        :
+                        null
+                }
+
+                {
+                    selOpctionMenuLyric === 'Por estrofa' && !loadSpinner ?
+                        <Grid item xs={7}>
+                            <LyricTranslate by={song.by} lyric={song.lyric} lyricT={songTranslate.lyric} title={song.title} />
+                        </Grid>
+                        :
+                        null
+                }
+            </Grid>
+        </Box>
     );
 }
 

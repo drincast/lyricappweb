@@ -79,45 +79,46 @@
 			"title": "beat it",
 			"lyric": {
 				"sp1": [
-						"They told him don't you ever come around here",
-						"Don't want to see your face, you better disappear",
-						"The fire's in their eyes and their words are really clear",
-						"So beat it, just beat it"
+						"le dijeron 'no vuelvas por aquÍ'.",
+						"no queremos ver tu cara, mejor desaparece",
+						"hay fuego en sus ojos y sus palabras son muy claras.",
+						"así que lárgate, solo lárgate"						
 					],
 				"sp2": [
-						"You better run, you better do what you can",
-						"Don't want to see no blood, don't be a macho man",
-						"You want to be tough, better do what you can",
-						"So beat it, but you want to be bad"
+						"Mejor corre, Mejor has lo que puedas",
+						"No quieres ver sangre, No seas un macho",
+						"Quieres ser duro, mejor has lo que puedas",
+						"Así que lárgate, Pero quieres ser malo"
 					],
 				"sp3": [
-						"Just beat it, beat it, beat it, beat it",
-						"No one wants to be defeated",
-						"Showin' how funky and strong is your fight",
-						"It doesn't matter who's wrong or right",
-						"Just beat it, beat it",
-						"Just beat it, beat it",
-						"Just beat it, beat it",
-						"Just beat it, beat it"
+						"lárgate, lárgate, lárgate, lárgate",
+						"nadie quiere sufrir una derrota",
+						"demostrando lo fuerte que es su lucha.",
+						"no importa quien tenga razón o no.",
+						"sólo, lárgate, lárgate",
+						"sólo, lárgate, lárgate",
+						"sólo, lárgate, lárgate",
+						"sólo, lárgate, lárgate"
 					],
 				"sp4": [
-						"They're out to get you, better leave while you can",
-						"Don't want to be a boy, you want to be a man",
-						"You want to stay alive, better do what you can",
-						"So beat it, just beat it"
+						"Van por ti, así que largate mientras puedas.",
+						"No quieres ser un chico, quieres ser un hombre.",
+						"quieres seguir vivo, mejor haz lo que puedas.",
+						"así que lárgate, sólo lárgate."
 					],
 				"sp5": [
-						"You have to show them that you're really not scared",
-						"You're playin' with your life, this ain't no truth or dare",
-						"They'll kick you, then they beat you,",
-						"Then they'll tell you it's fair",
-						"So beat it, but you want to be bad"
+						"Tienes que demostrarles que no tienes miedo.",
+						"Juegas con tu vida, esto no es verdad o atrevete.",
+						"Te patearán, de darán una paliza.",
+						"entonces te dirán, que es lo justo",
+						"así que lárgate, pero quieres ser malo."
 				],
 				"sp6": [
-						"Just beat it, beat it, beat it, beat it",
-						"No one wants to be defeated",
-						"Showin' how funky and strong is your fight",
-						"It doesn't matter who's wrong or right"
+						"x3",
+						"sólo, lárgate, lárgate, lárgate, lárgate",
+						"nadie quiere sufrir una derrota",
+						"demostrando lo fuerte que es su lucha.",
+						"no importa quien tenga razón o no."
 				]
 			}
 				
@@ -131,24 +132,24 @@
 			"title": "She Loves Me Not",
 			"lyric": {
 				"sp1": [
-						"When I see her eyes",
-						"Look into my eyes",
-						"Then I realize that she can see inside my head",
-						"So I close my eyes",
-						"Thinking that I could hide",
-						"Disassociate so I don't have to lose my head",
-						"This situation is to agitation",
-						"If she cut me off",
-						"Would this be an amputation?"
+						"Cuando veo sus ojos",
+						"Mirar dentro de los míos",
+						"Entonces me doy cuenta que ella puede ver dentro de mi cabeza",
+						"Entonces cierro mis ojos",
+						"Pensando que puedo esconderme",
+						"Desasociar pues no tengo que perder la cabeza",
+						"La situación, es de agitación",
+						"Si ella me corta",
+						"¿Sería esto una amputación?"
 					],
 				"sp2": [
-						"I don't know, if I care",
-						"I'm a jerk, life's not fair",
-						"Fighting all the time, this is out of line",
-						"She loves me not, loves me not",
-						"Do you realize I will compromise",
-						"She loves me not",
-						"Loves me not"
+						"No se si me importa",
+						"Soy quien tira, la vida no es justa",
+						"Peleando todo el tiempo, esto está fuera de línea",						
+						"¡Ella no me ama, no me ama!",
+						"¿Te das cuenta? me comprometeré",
+						"Ella no me ama,",
+						"no me ama!"
 					],
 				"sp3": [
 						"Over the past five years, I have shed my tears",

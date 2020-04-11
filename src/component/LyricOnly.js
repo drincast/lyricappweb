@@ -26,7 +26,7 @@ const LyricOnly = ({ by, lyric, title }) => {
     }
 
     return (
-        <Grid container justify='center' spacing={0}>
+        <Grid container justify='center' spacing={1} style={{marginLeft: '5px'}}>
             <Grid item xs={12}>
                 <LyricTitle title={title} by={by} />
             </Grid>
