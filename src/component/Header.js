@@ -7,7 +7,7 @@ const StlTypography = styled(({ ...other }) => <Typography { ...other } /> )({
     fontSize: '4em',
     fontWeight: '500',
     letterSpacing: 0,
-    textDecoration: 'underline'    
+    // textDecoration: 'underline'    
 });
 
 const Header = ({ title }) => {
